@@ -1,15 +1,18 @@
 import { Router } from "express";
 import { validateSchemaMiddleware } from '../middlewares/schemaMiddleware';
-import * as authSchemas from '../schemas/authSchemas' 
+import { tokenAuthenticationMiddle } from "../middlewares/tokenAuthenticationMiddle";
+import { signUpSchema, signInSchema }  from '../schemas/authSchemas';
+import { testData } from '../schemas/testSchemas' ;
 import * as authController from '../controllers/authController'
+import * as testsController from '../controllers/testsController'
 
 const routes = Router();
 
 
-routes.post('/signup', validateSchemaMiddleware(authSchemas.signUpSchema), authController.signUp);
-routes.post('/signin',validateSchemaMiddleware(authSchemas.signInSchema), authController.signIn);
+routes.post('/signup', validateSchemaMiddleware(signUpSchema), authController.signUp);
+routes.post('/signin',validateSchemaMiddleware(signInSchema), authController.signIn);
 
-
+routes.post('/new-test', tokenAuthenticationMiddle, validateSchemaMiddleware(testData), testsController.newTest);
 
 
 
