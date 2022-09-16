@@ -9,3 +9,15 @@ export async function newTest(req: Request, res: Response) {
 
     res.sendStatus(201);
 }
+
+export async function getTestsByDiscipline(req: Request, res: Response) {
+    const result =  await testServices.getTestsByDiscipline();
+
+    res.status(200).send(result);
+}
+
+export async function getTestsByInstructor(req: Request, res: Response) {
+    const result =  await testServices.getTestsByInstructor();
+
+    res.status(200).send(result);
+}

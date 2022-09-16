@@ -14,6 +14,11 @@ routes.post('/signin',validateSchemaMiddleware(signInSchema), authController.sig
 
 routes.post('/new-test', tokenAuthenticationMiddle, validateSchemaMiddleware(testData), testsController.newTest);
 
+routes.get('/testsbydiscipline', tokenAuthenticationMiddle, testsController.getTestsByDiscipline);
+
+routes.get('/testsbyinstructor', tokenAuthenticationMiddle, testsController.getTestsByInstructor);
+
+
 
 
 routes.get('/test', (req, res) =>{
