@@ -3,6 +3,7 @@ import app from '../src/index';
 import supertest from 'supertest';
 import * as userFactory from './factories/userFactory'
 
+
 beforeEach(async () => {
   await prisma.$executeRaw`TRUNCATE TABLE users;`;
 });

@@ -23,6 +23,28 @@ async function populateDataBaseSeed() {
         data: [{ name: "Diego Pinho"}, { name: "Bruna Hamori"}],
         skipDuplicates: true
     });
+
+    await prisma.disciplines.createMany({
+        data: [
+            {name: 'HTML e CSS', termId: 1},
+            {name: 'JavaScript', termId: 2},
+            {name: 'React', termId: 3},
+            {name: 'Humildade', termId: 1},
+            {name: 'Planejamento', termId: 2},
+            {name: 'Autoconfiança', termId: 3},
+        ]
+    });
+
+    await prisma.teachersDisciplines.createMany({
+        data: [
+            {teacherId: 1, disciplineId: 1},
+            {teacherId: 1, disciplineId: 2},
+            {teacherId: 1, disciplineId: 3},
+            {teacherId: 2, disciplineId: 4},
+            {teacherId: 2, disciplineId: 5},
+            {teacherId: 2, disciplineId: 6},
+        ]
+    });
 }
 
 
