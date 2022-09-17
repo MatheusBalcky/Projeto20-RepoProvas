@@ -11,61 +11,61 @@ datasource db {
 }
 
 model users {
-  id Int @id @default(autoincrement())
-  email String @unique
+  id       Int    @id @default(autoincrement())
+  email    String @unique
   password String
 }
 
 model teachers {
-  id Int @id @default(autoincrement())
+  id   Int    @id @default(autoincrement())
   name String @unique
 
   teachersDisciplines teachersDisciplines[]
 }
 
 model categories {
-  id Int @id @default(autoincrement())
+  id   Int    @id @default(autoincrement())
   name String @unique
 
   tests tests[]
 }
 
 model terms {
-  id Int @id @default(autoincrement())
+  id     Int @id @default(autoincrement())
   number Int @unique
 
   disciplines disciplines[]
 }
 
 model disciplines {
-  id Int @id @default(autoincrement())
+  id   Int    @id @default(autoincrement())
   name String @unique
 
   termId Int
-  term terms @relation(fields: [termId], references: [id])
+  term   terms @relation(fields: [termId], references: [id])
 
   teachersDisciplines teachersDisciplines[]
 }
 
 model teachersDisciplines {
   id Int @id @default(autoincrement())
-  
-  teacherId Int 
-  teacher teachers @relation(fields: [teacherId], references: [id])
 
-  disciplineId Int 
-  discipline disciplines @relation(fields: [disciplineId], references: [id])
+  teacherId Int
+  teacher   teachers @relation(fields: [teacherId], references: [id])
+
+  disciplineId Int
+  discipline   disciplines @relation(fields: [disciplineId], references: [id])
 
   tests tests[]
 }
 
 model tests {
-  id Int @id @default(autoincrement())
-  name String
+  id     Int    @id @default(autoincrement())
+  name   String
   pdfUrl String
 
   categoryId Int
-  category categories @relation(fields: [categoryId], references: [id])
+  category   categories @relation(fields: [categoryId], references: [id])
 
   teacherDisciplineId Int
   teachersDisciplines teachersDisciplines @relation(fields: [teacherDisciplineId], references: [id])
