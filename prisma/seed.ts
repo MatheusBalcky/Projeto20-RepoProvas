@@ -31,7 +31,7 @@ async function populateDataBaseSeed() {
             {name: 'React', termId: 3},
             {name: 'Humildade', termId: 1},
             {name: 'Planejamento', termId: 2},
-            {name: 'Autoconfiança', termId: 3},
+            {name: 'Autoconfiança', termId: 3}
         ]
     });
 
