@@ -27,7 +27,7 @@ POST /signup
     - body: {
         "email": "lorem@gmail.com",
         "password": "loremipsum",
-        "repeatPassword" : "loremipsum"
+        "repeatPassword": "loremipsum"
       }
 ```
     
